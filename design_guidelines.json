@@ -1,0 +1,104 @@
+{
+  "theme": "dark",
+  "visual_direction": "Dark & gritty street style — black backgrounds, bold graffiti-inspired typography, vivid accent colour.",
+  "typography": {
+    "headings": {
+      "font": "Anton, sans-serif",
+      "style": "uppercase, tracking-tight, extremely bold",
+      "weights": ["400"]
+    },
+    "body": {
+      "font": "Manrope, sans-serif",
+      "style": "clean, readable, geometric",
+      "weights": ["400", "500", "600", "700"]
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#050505",
+      "secondary": "#121212",
+      "tertiary": "#1A1A1A"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA"
+    },
+    "accent": {
+      "primary": "#E0FF00",
+      "hover": "#C5E600"
+    },
+    "border": "#27272A"
+  },
+  "layouts": {
+    "hero": "Kinetic hero with masked line-by-line reveal, full screen or large height. Text over dark gritty urban photography with strong overlay.",
+    "marquee": "Endless scrolling editorial marquee. Use react-fast-marquee. Massive outline text or solid acid yellow.",
+    "programmes": "Bento grid (Mode A: 'Tetris' grid). Asymmetrical layout, thick borders or no borders with varied background colors (some dark grey, some with imagery).",
+    "get_involved": "High contrast section, heavy typography, clear call to action.",
+    "contact": "Minimalist, brutalist form. 1px solid borders on inputs, bright acid yellow submit button."
+  },
+  "motion": {
+    "scrolling": "Smooth momentum scrolling using lenis or @studio-freight/react-lenis.",
+    "reveal": "Scroll-reveal animations for sections using Framer Motion (fade up, line-by-line text reveal).",
+    "hover": "High contrast hover states. Image scale-up on hover inside bento grid items."
+  },
+  "visual_enhancers": {
+    "texture": "Subtle noise/grain overlay on the entire site to enhance the gritty feel.",
+    "borders": "Use sharp 1px borders (border-white/10) for bento grids to give a brutalist, structured feel.",
+    "images": "Grayscale or desaturated urban photography mixed with high-visibility accent colors."
+  },
+  "components": [
+    "lucide-react for icons (minimal, geometric)",
+    "framer-motion for kinetic text and scroll reveals",
+    "react-fast-marquee for the marquee",
+    "lenis for smooth scrolling",
+    "Shadcn UI for Form, Input, Textarea, Button (customized for brutalist style, sharp corners rounded-none)"
+  ],
+  "accessibility": {
+    "contrast": "Ensure acid yellow text/buttons have dark text inside them for > 4.5:1 ratio. (e.g. text-black on bg-accent)",
+    "motion": "Respect prefers-reduced-motion for all framer-motion animations."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1785151262591-5e6cb87c6643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxncml0dHklMjB1cmJhbiUyMHlvdXRoJTIwY29tbXVuaXR5fGVufDB8fHx8MTc5MDk2OTY1Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Smiling man and three friends posing in black and white"
+    },
+    "programmes_mentoring": {
+      "url": "https://images.unsplash.com/photo-1772521241650-0e177b8e9421?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHw0fHxncml0dHklMjB1cmJhbiUyMHlvdXRoJTIwY29tbXVuaXR5fGVufDB8fHx8MTc5MDk2OTY1Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Five young men stand by a vehicle on a street"
+    },
+    "programmes_arts": {
+      "url": "https://images.unsplash.com/photo-1508162326105-bb8eac9e4630?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHw0fHxzdHJlZXQlMjBjdWx0dXJlJTIwZ3JhZmZpdGl8ZW58MHx8fHwxNzkwOTY5NjU2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "graffiti-painted brick wall"
+    },
+    "programmes_community": {
+      "url": "https://images.unsplash.com/photo-1484712401471-05c7215830eb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIweW91dGglMjBjb21tdW5pdHklMjBjaXR5fGVufDB8fHx8MTc5MDk2OTY2M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Diverse youth jumping, dynamic action"
+    },
+    "texture_overlay": {
+      "url": "https://images.unsplash.com/photo-1625921765718-40e14ee8641c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMHN0cmVldCUyMGFydCUyMHBvcnRyYWl0c3xlbnwwfHx8fDE3OTA5Njk2NjN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "womans face with black hair and black eye shadow graffiti"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install required dependencies: framer-motion, lenis, react-fast-marquee.",
+    "Implement React routing for Home, About/Our Objects, Programmes, Get Involved, Contact.",
+    "Apply a global dark theme by default. Set body background to #050505 and text to #FFFFFF.",
+    "Import Google Fonts: Anton and Manrope.",
+    "Hero Section: Use Framer Motion to create a masked line-by-line reveal for the main heading.",
+    "Marquee: Use react-fast-marquee. Make the text massive, uppercase, with an outline effect (-webkit-text-stroke: 1px #E0FF00; color: transparent;).",
+    "Programmes: Implement a Bento grid. Use varied span sizes (col-span-1, col-span-2) to create visual tension.",
+    "Contact Form: Build a functional form. Connect it to the FastAPI backend which should use Resend to send emails to contact@forwardmovement.org.uk.",
+    "Do not include any donation buttons, links, or features.",
+    "All interactive elements MUST include a data-testid attribute for testing.",
+    "Use sharp corners (rounded-none) for most UI elements to fit the gritty/brutalist style."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Avoid generic centered layouts. Use grid, diagonals, and negative space to guide flow.",
+    "Create depth through layered design elements, but avoid soft shadows. Use sharp, brutalist shadows or 1px borders instead.",
+    "Do not use dark colors as gradients. Use solid colors with texture.",
+    "Never use pure #000000. Tint it slightly or use #050505.",
+    "Ensure contrast ratios are accessible. The acid yellow (#E0FF00) should have dark text (#000000) when used as a background for buttons or badges.",
+    "DO NOT use transparent backgrounds for dropdowns or headers over content. Use solid dark backgrounds or heavily blurred glassmorphism.",
+    "Buttons should have clear hover states (e.g., color inversion or sharp translate offsets)."
+  ]
+}
