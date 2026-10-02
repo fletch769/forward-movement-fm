@@ -12,7 +12,8 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 ## Architecture
 - Frontend: React 19 + react-router-dom 7, Tailwind, framer-motion (kinetic hero + scroll reveals), lenis (smooth scroll), react-fast-marquee (editorial marquees), sonner toasts. Fonts: Anton (display) + Manrope (body). Accent: acid yellow #E0FF00 on #050505.
 - Backend: FastAPI + MongoDB (motor). POST /api/contact validates, rate-limits (5/min/IP), stores in `contact_messages`, sends email via Emergent managed email proxy (https://integrations.emergentagent.com) with guardrail gate.
-- Env: backend/.env has EMERGENT_EMAIL_KEY, EMAIL_FROM_NAME="Forward Movement", EMAIL_REPLY_TO + CONTACT_INBOX = contact@forwardmovement.org.uk
+- Env: backend/.env has RESEND_API_KEY (user's own Resend account, sending access), RESEND_FROM_EMAIL="Forward Movement Website <website@forwardmovement.org.uk>", CONTACT_INBOX=contact@forwardmovement.org.uk
+- Email (2026-10-02): switched from Emergent managed proxy to user's OWN Resend account. Domain forwardmovement.org.uk verified via 3 GoDaddy DNS records: TXT resend._domainkey (DKIM p=MIGf...), CNAME rsend → rsend-euw1.forge.rmta.net, CNAME send → send.forge.rmta.net. Existing Microsoft 365 MX + SPF at @ untouched. Sends FROM website@forwardmovement.org.uk, reply_to = form submitter. Verified: 2 x Resend API 200 OK (curl + live form).
 - Design source: /app/design_guidelines.json
 - Original SVG logo mark (double forward chevrons, acid on ink) also used as favicon (/app/frontend/public/favicon.svg)
 
@@ -34,7 +35,6 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 ## Backlog
 - P0: none
 - P1: Add real programme details/dates/locations when the charity provides them; photos of actual Forward Movement sessions replacing stock imagery
-- P1: If charity wants email sent FROM @forwardmovement.org.uk: complete their own Resend domain verification with the DNS records in GoDaddy (their pasted plan) and swap the managed integration for their own Resend key
 - P2: Impact/stats section with real numbers, news/blog, events listing, trustee/team page, policies (safeguarding, privacy)
 
 ## Next Tasks
