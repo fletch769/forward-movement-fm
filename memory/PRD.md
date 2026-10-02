@@ -11,9 +11,10 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 
 ## Architecture
 - Frontend: React 19 + react-router-dom 7, Tailwind, framer-motion (kinetic hero + scroll reveals), lenis (smooth scroll), react-fast-marquee (editorial marquees), sonner toasts. Fonts: Anton (display) + Manrope (body). Accent: acid yellow #E0FF00 on #050505.
-- Backend: FastAPI + MongoDB (motor). POST /api/contact validates, rate-limits (5/min/IP), stores in `contact_messages`, sends email via Emergent managed email proxy (https://integrations.emergentagent.com) with guardrail gate.
+- Backend: FastAPI + MongoDB (motor). POST /api/contact validates, rate-limits (5/min/IP), stores in `contact_messages`, sends notification + branded auto-reply via user's own Resend account. GET /api/health for deploy checks.
 - Env: backend/.env has RESEND_API_KEY (user's own Resend account, sending access), RESEND_FROM_EMAIL="Forward Movement Website <website@forwardmovement.org.uk>", CONTACT_INBOX=contact@forwardmovement.org.uk
 - Email (2026-10-02): switched from Emergent managed proxy to user's OWN Resend account. Domain forwardmovement.org.uk verified via 3 GoDaddy DNS records: TXT resend._domainkey (DKIM p=MIGf...), CNAME rsend → rsend-euw1.forge.rmta.net, CNAME send → send.forge.rmta.net. Existing Microsoft 365 MX + SPF at @ untouched. Sends FROM website@forwardmovement.org.uk, reply_to = form submitter. Verified: 2 x Resend API 200 OK (curl + live form).
+- Auto-reply (2026-10-02): every enquirer instantly gets a branded thank-you email (acid-yellow header, their message quoted, reply reaches contact@forwardmovement.org.uk). Auto-reply failure never blocks the enquiry. Verified live: auto_reply_id returned + Resend 200.
 - Design source: /app/design_guidelines.json
 - Original SVG logo mark (double forward chevrons, acid on ink) also used as favicon (/app/frontend/public/favicon.svg)
 
@@ -24,7 +25,7 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 
 ## Implemented (2026-10-02)
 - 5 pages: Home (kinetic masked-reveal hero + parallax/mouse-tilt image, facts strip, mission, programmes preview, acid CTA band, 2 marquees), About (current object + 5 updated objects), Programmes (6-card bento grid), Get Involved (volunteer/partner/join), Contact (working form)
-- Contact form -> real email to contact@forwardmovement.org.uk via managed Resend (verified: email_id returned, success toast shown in UI test)
+- Contact form -> real email FROM website@forwardmovement.org.uk TO contact@forwardmovement.org.uk via user's own verified Resend account + instant branded auto-reply to enquirer (verified: email_id + auto_reply_id returned, success toast in UI test)
 - Dark gritty street design system, grain overlay, outline display text, mobile nav overlay
 - All interactive elements have data-testid
 
@@ -39,4 +40,4 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 
 ## Next Tasks
 - Collect real programme info & photos from the charity
-- Optional: own-domain email sending via Resend DNS setup (user already drafting this)
+- Deploy via Publish button (50 credits); env vars incl. RESEND_API_KEY carry over automatically on first deploy; preview DB (contact_messages) migrates once, then preview/live databases are independent

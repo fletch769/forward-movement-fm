@@ -163,6 +163,11 @@ async def root():
     return {"message": "Forward Movement API"}
 
 
+@api_router.get("/health")
+async def health():
+    return {"status": "ok"}
+
+
 @api_router.post("/contact")
 async def submit_contact(payload: ContactMessage, request: Request):
     _rate_limit(request.client.host if request.client else "unknown")
