@@ -75,6 +75,64 @@ async def send_contact_email(doc: dict) -> str | None:
         raise HTTPException(status_code=502, detail="Failed to send email")
 
 
+async def send_auto_reply(doc: dict) -> str | None:
+    name = escape(doc["name"])
+    message_html = escape(doc["message"]).replace("\n", "<br>")
+    params: resend.Emails.SendParams = {
+        "from": RESEND_FROM_EMAIL,
+        "to": [doc["email"]],
+        "reply_to": [CONTACT_INBOX],
+        "subject": "Thanks for contacting Forward Movement",
+        "html": (
+            '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" '
+            'style="background:#050505"><tr><td style="padding:24px 16px">'
+            '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" '
+            'style="max-width:560px;margin:0 auto;background:#ffffff">'
+            '<tr><td style="background:#050505;padding:20px 24px">'
+            '<span style="font-family:Arial,sans-serif;font-size:18px;font-weight:bold;'
+            'letter-spacing:2px;color:#E0FF00;text-transform:uppercase">'
+            'Forward Movement</span></td></tr>'
+            '<tr><td style="height:6px;background:#E0FF00;font-size:0;line-height:0">&nbsp;</td></tr>'
+            f'<tr><td style="padding:28px 24px;font-family:Arial,sans-serif;color:#111111">'
+            f'<p style="font-size:16px;margin:0 0 16px">Hi {name},</p>'
+            '<p style="font-size:15px;line-height:1.6;margin:0 0 16px">'
+            'Thanks for getting in touch — your message has landed safely with the '
+            'Forward Movement team. We aim to reply within a few working days.</p>'
+            '<p style="font-size:15px;line-height:1.6;margin:0 0 8px"><strong>What you sent us:</strong></p>'
+            f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
+            f'<tr><td style="border-left:4px solid #E0FF00;background:#f5f5f5;'
+            f'padding:14px 16px;font-size:14px;line-height:1.6;color:#333333">'
+            f'{message_html}</td></tr></table>'
+            '<p style="font-size:14px;line-height:1.6;margin:20px 0 0">'
+            'Need to add anything? Just reply to this email and it will reach us.</p>'
+            '</td></tr>'
+            '<tr><td style="background:#050505;padding:16px 24px;font-family:Arial,sans-serif;'
+            'font-size:12px;color:#a1a1aa">'
+            'Forward Movement · Registered Charity No. 1191828 (England &amp; Wales)<br/>'
+            'We never ask for passwords or card details by email.'
+            '</td></tr>'
+            '</table></td></tr></table>'
+        ),
+        "text": (
+            f"Hi {doc['name']},\n\n"
+            "Thanks for getting in touch — your message has landed safely with the "
+            "Forward Movement team. We aim to reply within a few working days.\n\n"
+            f"What you sent us:\n{doc['message']}\n\n"
+            "Need to add anything? Just reply to this email and it will reach us.\n\n"
+            "Forward Movement · Registered Charity No. 1191828 (England & Wales)"
+        ),
+        "tags": [{"name": "source", "value": "contact-form-autoreply"}],
+    }
+    try:
+        result = await resend.Emails.send_async(
+            params, {"idempotency_key": f"contact-autoreply/{doc['id']}"}
+        )
+        return result["id"]
+    except ResendError as e:
+        logger.error(f"Auto-reply failed for {doc['id']}: {e}")
+        return None
+
+
 ALLOWED_TOPICS = {
     "General enquiry", "Volunteering", "Partnerships",
     "Joining a programme", "Housing support", "Other",
@@ -119,10 +177,17 @@ async def submit_contact(payload: ContactMessage, request: Request):
     }
     await db.contact_messages.insert_one(doc)
     email_id = await send_contact_email(doc)
+    auto_reply_id = await send_auto_reply(doc)
     await db.contact_messages.update_one(
-        {"id": doc["id"]}, {"$set": {"resend_id": email_id, "email_status": "accepted"}}
+        {"id": doc["id"]},
+        {"$set": {
+            "resend_id": email_id,
+            "email_status": "accepted",
+            "auto_reply_id": auto_reply_id,
+            "auto_reply_status": "accepted" if auto_reply_id else "failed",
+        }},
     )
-    return {"status": "success", "id": doc["id"], "email_id": email_id}
+    return {"status": "success", "id": doc["id"], "email_id": email_id, "auto_reply_id": auto_reply_id}
 
 
 app.include_router(api_router)
