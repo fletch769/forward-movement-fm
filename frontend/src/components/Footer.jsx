@@ -37,9 +37,18 @@ const Footer = () => (
           Contact
         </p>
         <a
+          href="https://www.forwardmovement.org.uk"
+          data-testid="footer-website-link"
+          className="inline-flex items-center gap-2 text-white font-semibold hover:text-acid transition-colors duration-300"
+        >
+          www.forwardmovement.org.uk
+          <ArrowUpRight className="w-4 h-4 shrink-0" />
+        </a>
+        <br />
+        <a
           href="mailto:contact@forwardmovement.org.uk"
           data-testid="footer-email-link"
-          className="inline-flex items-center gap-2 text-white font-semibold hover:text-acid transition-colors duration-300 break-all"
+          className="inline-flex items-center gap-2 mt-3 text-white font-semibold hover:text-acid transition-colors duration-300 break-all"
         >
           contact@forwardmovement.org.uk
           <ArrowUpRight className="w-4 h-4 shrink-0" />

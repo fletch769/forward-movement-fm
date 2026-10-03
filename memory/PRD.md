@@ -41,3 +41,4 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 ## Next Tasks
 - Collect real programme info & photos from the charity
 - Deploy via Publish button (50 credits); env vars incl. RESEND_API_KEY carry over automatically on first deploy; preview DB (contact_messages) migrates once, then preview/live databases are independent
+- Custom domain (2026-10-03): user wants www.forwardmovement.org.uk (GoDaddy DNS). Must Publish FIRST, then Manage Publishes → Domain tab → Auto-Link (works with GoDaddy OAuth) or manual: CNAME www + apex A records 162.159.142.117 / 172.66.2.113. SSL auto via Cloudflare, 5-15 min. Website address now shown on Contact page + footer (done in preview).
