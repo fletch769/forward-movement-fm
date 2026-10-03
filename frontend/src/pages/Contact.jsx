@@ -74,21 +74,6 @@ const Contact = () => {
                 </a>
               </div>
             </FadeUp>
-            <FadeUp delay={0.1}>
-              <div>
-                <p className="text-sm uppercase tracking-widest text-zinc-500 mb-4">
-                  Website
-                </p>
-                <a
-                  href="https://www.forwardmovement.org.uk"
-                  data-testid="contact-website-link"
-                  className="inline-flex items-center gap-2 text-2xl md:text-3xl font-display uppercase tracking-tight text-white hover:text-acid transition-colors duration-300"
-                >
-                  www.forwardmovement.org.uk
-                  <ArrowUpRight className="w-7 h-7 shrink-0" />
-                </a>
-              </div>
-            </FadeUp>
             <FadeUp delay={0.15}>
               <div>
                 <p className="text-sm uppercase tracking-widest text-zinc-500 mb-4">
