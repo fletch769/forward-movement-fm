@@ -55,7 +55,7 @@ const CARDS = [
 const BentoCard = ({ card, index }) => (
   <FadeUp delay={index * 0.07} className={card.span}>
     <div
-      className={`group relative h-full min-h-[260px] border border-white/10 overflow-hidden bg-coal p-6 md:p-8 flex flex-col justify-between ${
+      className={`group relative h-full min-h-[300px] border border-white/10 overflow-hidden bg-coal p-7 md:p-9 flex flex-col justify-between ${
         card.img ? "" : "hover:border-acid/60"
       } transition-colors duration-300`}
       data-testid={`programme-card-${card.n}`}
@@ -77,18 +77,18 @@ const BentoCard = ({ card, index }) => (
         </>
       )}
       <div className="relative flex items-start justify-between gap-4">
-        <span className="inline-block border border-acid/50 text-acid text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5">
+        <span className="inline-block border border-acid/50 text-acid text-xs font-bold uppercase tracking-[0.2em] px-4 py-2">
           {card.tag}
         </span>
-        <span className="font-display text-3xl md:text-4xl text-outline-white group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
+        <span className="font-display text-4xl md:text-5xl text-outline-white group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
           {card.n}
         </span>
       </div>
-      <div className="relative mt-16">
-        <h3 className="font-display uppercase text-3xl md:text-4xl leading-[0.95] tracking-tight text-white">
+      <div className="relative mt-20">
+        <h3 className="font-display uppercase text-4xl md:text-5xl leading-[0.95] tracking-tight text-white">
           {card.title}
         </h3>
-        <p className="mt-4 text-sm md:text-base text-zinc-400 leading-relaxed max-w-md">
+        <p className="mt-5 text-base md:text-lg text-zinc-400 leading-relaxed max-w-lg">
           {card.text}
         </p>
       </div>
@@ -98,15 +98,15 @@ const BentoCard = ({ card, index }) => (
 
 const Programmes = () => (
   <>
-    <section className="pt-40 pb-20 md:pt-52 md:pb-24" data-testid="programmes-header">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section className="pt-44 pb-24 md:pt-56 md:pb-28" data-testid="programmes-header">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-6">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-8">
             What We Do
           </p>
         </FadeUp>
         <h1
-          className="font-display uppercase leading-[0.88] tracking-tight text-[14vw] sm:text-[10vw] lg:text-[8rem]"
+          className="font-display uppercase leading-[0.88] tracking-tight text-[15vw] sm:text-[11vw] lg:text-[10rem]"
           data-testid="programmes-heading"
         >
           <LineReveal delay={0.2} className="text-white">
@@ -117,7 +117,7 @@ const Programmes = () => (
           </LineReveal>
         </h1>
         <FadeUp delay={0.3}>
-          <p className="mt-10 max-w-2xl text-zinc-400 text-base md:text-lg leading-relaxed">
+          <p className="mt-12 max-w-3xl text-zinc-400 text-lg md:text-xl leading-relaxed">
             Six ways we help young people and people in need build skills,
             confidence and independence — from the studio to the sports pitch,
             from a first job to a front door of your own.
@@ -126,9 +126,9 @@ const Programmes = () => (
       </div>
     </section>
 
-    <section className="pb-24 md:pb-32" data-testid="programmes-bento">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(240px,auto)]">
+    <section className="pb-28 md:pb-36" data-testid="programmes-bento">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(280px,auto)]">
           {CARDS.map((card, i) => (
             <BentoCard key={card.n} card={card} index={i} />
           ))}
@@ -139,12 +139,12 @@ const Programmes = () => (
     <EditorialMarquee />
 
     <section className="bg-acid text-ink" data-testid="programmes-cta">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-24 flex flex-col md:flex-row md:items-center gap-10 justify-between">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10 py-24 md:py-28 flex flex-col md:flex-row md:items-center gap-12 justify-between">
         <FadeUp>
-          <h2 className="font-display uppercase leading-[0.9] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+          <h2 className="font-display uppercase leading-[0.9] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
             Want to take part?
           </h2>
-          <p className="mt-4 max-w-md text-ink/70 text-base md:text-lg font-medium">
+          <p className="mt-6 max-w-lg text-ink/70 text-lg md:text-xl font-medium">
             Tell us who you are and what you need — we will point you at the
             right programme.
           </p>
@@ -153,10 +153,10 @@ const Programmes = () => (
           <Link
             to="/contact"
             data-testid="programmes-contact-button"
-            className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-sm px-8 py-5 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
+            className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-base px-10 py-6 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
           >
             Contact Us
-            <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+            <ArrowRight className="w-6 h-6" strokeWidth={2.5} />
           </Link>
         </FadeUp>
       </div>

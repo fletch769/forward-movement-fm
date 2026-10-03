@@ -32,6 +32,7 @@ Build a website for charity FORWARD MOVEMENT (Registered Charity No. 1191828). U
 ## Verified
 - GET /api/ health OK; POST /api/contact returns success + email_id
 - UI: home at 375/768/1366px, contact form submit shows success toast, programmes bento renders
+- Scale-up (2026-10-03): typography/spacing enlarged site-wide to match the larger feel of the user's earlier build (hero 11.5rem display, page H1s 10rem, containers max-w-[92rem], larger nav/buttons/marquee/body). Verified at 1366 + 375px.
 
 ## Backlog
 - P0: none

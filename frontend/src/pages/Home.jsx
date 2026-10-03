@@ -53,22 +53,22 @@ const Hero = () => {
             "linear-gradient(to top, #050505 6%, rgba(5,5,5,0.5) 45%, rgba(5,5,5,0.72) 100%)",
         }}
       />
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 w-full pb-24 md:pb-32 pt-44">
+      <div className="relative max-w-[92rem] mx-auto px-5 md:px-10 w-full pb-28 md:pb-36 pt-48">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="mb-8"
+          className="mb-10"
         >
           <span
-            className="inline-block border border-acid/50 text-acid text-[11px] md:text-xs font-bold uppercase tracking-[0.25em] px-4 py-2"
+            className="inline-block border border-acid/50 text-acid text-xs md:text-sm font-bold uppercase tracking-[0.25em] px-5 py-2.5"
             data-testid="hero-charity-badge"
           >
             Registered Charity No. 1191828
           </span>
         </motion.div>
         <h1
-          className="font-display uppercase leading-[0.88] tracking-tight text-[17vw] sm:text-[13vw] lg:text-[9.5rem]"
+          className="font-display uppercase leading-[0.88] tracking-tight text-[19vw] sm:text-[15vw] lg:text-[11.5rem]"
           data-testid="hero-heading"
         >
           <LineReveal delay={0.35} className="text-outline">
@@ -82,7 +82,7 @@ const Hero = () => {
           </LineReveal>
         </h1>
         <motion.p
-          className="mt-8 max-w-xl text-zinc-300 text-base md:text-lg leading-relaxed"
+          className="mt-10 max-w-2xl text-zinc-300 text-lg md:text-xl leading-relaxed"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
@@ -93,7 +93,7 @@ const Hero = () => {
           education, housing support and community.
         </motion.p>
         <motion.div
-          className="mt-10 flex flex-wrap gap-4"
+          className="mt-12 flex flex-wrap gap-5"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.15, duration: 0.8 }}
@@ -101,18 +101,18 @@ const Hero = () => {
           <Link
             to="/programmes"
             data-testid="hero-programmes-button"
-            className="inline-flex items-center gap-2 bg-acid text-ink font-bold uppercase tracking-widest text-sm px-7 py-4 hover:bg-acid-hover hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-acid text-ink font-bold uppercase tracking-widest text-base px-9 py-5 hover:bg-acid-hover hover:-translate-y-0.5 transition-all duration-300"
           >
             Our Programmes
-            <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
+            <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
           </Link>
           <Link
             to="/get-involved"
             data-testid="hero-involved-button"
-            className="inline-flex items-center gap-2 border border-white/30 text-white font-bold uppercase tracking-widest text-sm px-7 py-4 hover:border-acid hover:text-acid transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-white/30 text-white font-bold uppercase tracking-widest text-base px-9 py-5 hover:border-acid hover:text-acid transition-all duration-300"
           >
             Get Involved
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+            <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
           </Link>
         </motion.div>
       </div>
@@ -128,19 +128,19 @@ const FACTS = [
 
 const FactsStrip = () => (
   <section className="border-b border-white/10" data-testid="facts-strip">
-    <div className="max-w-7xl mx-auto px-5 md:px-8 grid sm:grid-cols-3">
+    <div className="max-w-[92rem] mx-auto px-5 md:px-10 grid sm:grid-cols-3">
       {FACTS.map((fact, i) => (
         <FadeUp
           key={fact.label}
           delay={i * 0.1}
-          className={`py-10 md:py-14 sm:px-8 first:pl-0 ${
+          className={`py-12 md:py-16 sm:px-10 first:pl-0 ${
             i > 0 ? "sm:border-l border-white/10" : ""
           }`}
         >
-          <p className="font-display text-4xl md:text-6xl text-acid leading-none">
+          <p className="font-display text-5xl md:text-7xl text-acid leading-none">
             {fact.value}
           </p>
-          <p className="mt-3 text-zinc-400 text-sm uppercase tracking-widest">
+          <p className="mt-4 text-zinc-400 text-base uppercase tracking-widest">
             {fact.label}
           </p>
         </FadeUp>
@@ -150,23 +150,23 @@ const FactsStrip = () => (
 );
 
 const Mission = () => (
-  <section className="py-24 md:py-36" data-testid="mission-section">
-    <div className="max-w-7xl mx-auto px-5 md:px-8 grid gap-14 md:grid-cols-12 items-center">
+  <section className="py-28 md:py-40" data-testid="mission-section">
+    <div className="max-w-[92rem] mx-auto px-5 md:px-10 grid gap-16 md:grid-cols-12 items-center">
       <div className="md:col-span-7">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-6">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-8">
             The Mission
           </p>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
             Built in the community.
             <br />
             <span className="text-outline">Run for the community.</span>
           </h2>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="mt-8 text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="mt-10 text-zinc-400 text-lg md:text-xl leading-relaxed max-w-2xl">
             We exist to advance in life and relieve the needs of young people
             and people in need. That means real education, training and
             mentoring. Real opportunities in the performing arts, media,
@@ -179,10 +179,10 @@ const Mission = () => (
           <Link
             to="/about"
             data-testid="mission-about-link"
-            className="mt-10 inline-flex items-center gap-3 text-acid font-bold uppercase tracking-widest text-sm group"
+            className="mt-12 inline-flex items-center gap-3 text-acid font-bold uppercase tracking-widest text-base group"
           >
             <span className="border-b border-acid pb-1">Read our objects</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
           </Link>
         </FadeUp>
       </div>
@@ -225,14 +225,14 @@ const PREVIEW = [
 ];
 
 const ProgrammesPreview = () => (
-  <section className="py-24 md:py-32 border-t border-white/10" data-testid="programmes-preview">
-    <div className="max-w-7xl mx-auto px-5 md:px-8">
-      <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
+  <section className="py-28 md:py-36 border-t border-white/10" data-testid="programmes-preview">
+    <div className="max-w-[92rem] mx-auto px-5 md:px-10">
+      <div className="flex flex-wrap items-end justify-between gap-8 mb-16">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-4">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-5">
             What We Do
           </p>
-          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
             Programmes that
             <br />
             open doors
@@ -242,10 +242,10 @@ const ProgrammesPreview = () => (
           <Link
             to="/programmes"
             data-testid="preview-all-programmes-link"
-            className="inline-flex items-center gap-2 border border-white/30 text-white font-bold uppercase tracking-widest text-sm px-6 py-3 hover:border-acid hover:text-acid transition-all duration-300"
+            className="inline-flex items-center gap-2 border border-white/30 text-white font-bold uppercase tracking-widest text-base px-7 py-4 hover:border-acid hover:text-acid transition-all duration-300"
           >
             All Programmes
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+            <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
           </Link>
         </FadeUp>
       </div>
@@ -255,7 +255,7 @@ const ProgrammesPreview = () => (
             <Link
               to="/programmes"
               data-testid={`preview-card-${card.n}`}
-              className="group relative block h-96 border border-white/10 overflow-hidden bg-coal"
+              className="group relative block h-[28rem] border border-white/10 overflow-hidden bg-coal"
             >
               <img
                 src={card.img}
@@ -269,13 +269,13 @@ const ProgrammesPreview = () => (
                     "linear-gradient(to top, rgba(5,5,5,0.95) 10%, rgba(5,5,5,0.25) 60%)",
                 }}
               />
-              <div className="relative h-full flex flex-col justify-between p-6">
-                <span className="font-display text-2xl text-acid">{card.n}</span>
+              <div className="relative h-full flex flex-col justify-between p-7">
+                <span className="font-display text-3xl text-acid">{card.n}</span>
                 <div>
-                  <h3 className="font-display uppercase text-2xl md:text-3xl leading-none tracking-tight text-white">
+                  <h3 className="font-display uppercase text-3xl md:text-4xl leading-none tracking-tight text-white">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
+                  <p className="mt-4 text-base text-zinc-400 leading-relaxed">
                     {card.text}
                   </p>
                 </div>
@@ -290,14 +290,14 @@ const ProgrammesPreview = () => (
 
 const InvolvedBand = () => (
   <section className="bg-acid text-ink" data-testid="involved-band">
-    <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28 flex flex-col md:flex-row md:items-center gap-10 justify-between">
+    <div className="max-w-[92rem] mx-auto px-5 md:px-10 py-24 md:py-32 flex flex-col md:flex-row md:items-center gap-12 justify-between">
       <FadeUp>
-        <h2 className="font-display uppercase leading-[0.9] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
+        <h2 className="font-display uppercase leading-[0.9] tracking-tight text-6xl sm:text-7xl lg:text-8xl">
           Ready to
           <br />
           move?
         </h2>
-        <p className="mt-6 max-w-md text-ink/70 text-base md:text-lg font-medium leading-relaxed">
+        <p className="mt-8 max-w-lg text-ink/70 text-lg md:text-xl font-medium leading-relaxed">
           Volunteer, partner with us, or join a programme. However you show up —
           show up. The movement needs you.
         </p>
@@ -306,10 +306,10 @@ const InvolvedBand = () => (
         <Link
           to="/get-involved"
           data-testid="band-involved-button"
-          className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-sm px-8 py-5 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
+          className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-base px-10 py-6 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
         >
           Get Involved
-          <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+          <ArrowRight className="w-6 h-6" strokeWidth={2.5} />
         </Link>
       </FadeUp>
     </div>

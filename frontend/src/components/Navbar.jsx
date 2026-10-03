@@ -31,10 +31,10 @@ const Navbar = () => {
         }`}
         data-testid="site-header"
       >
-        <div className="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-[92rem] mx-auto px-5 md:px-10 h-24 flex items-center justify-between">
           <Logo />
           <nav
-            className="hidden lg:flex items-center gap-8"
+            className="hidden lg:flex items-center gap-10"
             data-testid="desktop-nav"
           >
             {NAV_LINKS.map((link) => (
@@ -43,7 +43,7 @@ const Navbar = () => {
                 to={link.to}
                 data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 className={({ isActive }) =>
-                  `text-sm font-semibold uppercase tracking-widest transition-colors duration-300 ${
+                  `text-base font-bold uppercase tracking-widest transition-colors duration-300 ${
                     isActive ? "text-acid" : "text-zinc-400 hover:text-white"
                   }`
                 }
@@ -54,10 +54,10 @@ const Navbar = () => {
             <Link
               to="/contact"
               data-testid="nav-cta-button"
-              className="flex items-center gap-2 bg-acid text-ink font-bold uppercase tracking-widest text-sm px-5 py-2.5 hover:bg-acid-hover hover:-translate-y-0.5 transition-all duration-300"
+              className="flex items-center gap-2 bg-acid text-ink font-bold uppercase tracking-widest text-base px-7 py-3.5 hover:bg-acid-hover hover:-translate-y-0.5 transition-all duration-300"
             >
               Talk To Us
-              <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+              <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
             </Link>
           </nav>
           <button
@@ -66,7 +66,7 @@ const Navbar = () => {
             aria-label={open ? "Close menu" : "Open menu"}
             data-testid="mobile-menu-toggle"
           >
-            {open ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {open ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
         </div>
       </header>
@@ -93,7 +93,7 @@ const Navbar = () => {
                     to={link.to}
                     data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                     className={({ isActive }) =>
-                      `font-display uppercase text-5xl sm:text-6xl leading-tight tracking-tight transition-colors duration-300 ${
+                      `font-display uppercase text-6xl sm:text-7xl leading-tight tracking-tight transition-colors duration-300 ${
                         isActive ? "text-acid" : "text-white hover:text-acid"
                       }`
                     }
@@ -104,7 +104,7 @@ const Navbar = () => {
               ))}
             </nav>
             <motion.p
-              className="mt-12 text-zinc-500 text-xs uppercase tracking-widest"
+              className="mt-12 text-zinc-500 text-sm uppercase tracking-widest"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}

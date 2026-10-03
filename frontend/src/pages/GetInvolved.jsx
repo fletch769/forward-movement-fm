@@ -26,15 +26,15 @@ const WAYS = [
 
 const GetInvolved = () => (
   <>
-    <section className="pt-40 pb-16 md:pt-52 md:pb-20" data-testid="involved-header">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section className="pt-44 pb-20 md:pt-56 md:pb-24" data-testid="involved-header">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-6">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-8">
             Get Involved
           </p>
         </FadeUp>
         <h1
-          className="font-display uppercase leading-[0.88] tracking-tight text-[14vw] sm:text-[10vw] lg:text-[8rem]"
+          className="font-display uppercase leading-[0.88] tracking-tight text-[15vw] sm:text-[11vw] lg:text-[10rem]"
           data-testid="involved-heading"
         >
           <LineReveal delay={0.2} className="text-white">
@@ -45,7 +45,7 @@ const GetInvolved = () => (
           </LineReveal>
         </h1>
         <FadeUp delay={0.3}>
-          <p className="mt-10 max-w-2xl text-zinc-400 text-base md:text-lg leading-relaxed">
+          <p className="mt-12 max-w-3xl text-zinc-400 text-lg md:text-xl leading-relaxed">
             A movement only moves when people do. Three ways to be part of
             Forward Movement — pick yours.
           </p>
@@ -53,27 +53,27 @@ const GetInvolved = () => (
       </div>
     </section>
 
-    <section className="pb-24 md:pb-32" data-testid="involved-ways">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 border-b border-white/10">
+    <section className="pb-28 md:pb-36" data-testid="involved-ways">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10 border-b border-white/10">
         {WAYS.map((way, i) => (
           <FadeUp key={way.n} delay={i * 0.08}>
             <Link
               to="/contact"
               data-testid={`involved-card-${way.n}`}
-              className="group grid gap-4 md:grid-cols-12 md:items-center py-10 md:py-14 border-t border-white/10 px-2 md:px-4 hover:bg-coal transition-colors duration-300"
+              className="group grid gap-5 md:grid-cols-12 md:items-center py-12 md:py-16 border-t border-white/10 px-2 md:px-6 hover:bg-coal transition-colors duration-300"
             >
-              <span className="md:col-span-1 font-display text-2xl text-outline-white group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
+              <span className="md:col-span-1 font-display text-3xl text-outline-white group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
                 {way.n}
               </span>
-              <h2 className="md:col-span-4 font-display uppercase text-4xl md:text-5xl leading-[0.9] tracking-tight text-white group-hover:text-acid transition-colors duration-300">
+              <h2 className="md:col-span-4 font-display uppercase text-5xl md:text-6xl leading-[0.9] tracking-tight text-white group-hover:text-acid transition-colors duration-300">
                 {way.title}
               </h2>
-              <p className="md:col-span-5 text-zinc-400 text-sm md:text-base leading-relaxed">
+              <p className="md:col-span-5 text-zinc-400 text-base md:text-lg leading-relaxed">
                 {way.text}
               </p>
-              <span className="md:col-span-2 flex md:justify-end items-center gap-2 text-acid text-xs font-bold uppercase tracking-widest">
+              <span className="md:col-span-2 flex md:justify-end items-center gap-2 text-acid text-sm font-bold uppercase tracking-widest">
                 {way.cta}
-                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </span>
             </Link>
           </FadeUp>
@@ -84,9 +84,9 @@ const GetInvolved = () => (
     <EditorialMarquee inverted />
 
     <section className="bg-acid text-ink" data-testid="involved-cta">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-24 flex flex-col md:flex-row md:items-center gap-10 justify-between">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10 py-24 md:py-28 flex flex-col md:flex-row md:items-center gap-12 justify-between">
         <FadeUp>
-          <h2 className="font-display uppercase leading-[0.9] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+          <h2 className="font-display uppercase leading-[0.9] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
             Let&apos;s move.
             <br />
             Together.
@@ -96,10 +96,10 @@ const GetInvolved = () => (
           <Link
             to="/contact"
             data-testid="involved-contact-button"
-            className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-sm px-8 py-5 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
+            className="inline-flex items-center gap-3 bg-ink text-acid font-bold uppercase tracking-widest text-base px-10 py-6 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300"
           >
             Contact Us
-            <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+            <ArrowRight className="w-6 h-6" strokeWidth={2.5} />
           </Link>
         </FadeUp>
       </div>

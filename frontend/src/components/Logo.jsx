@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const LogoMark = ({ size = 34 }) => (
+export const LogoMark = ({ size = 40 }) => (
   <svg
     width={size}
     height={size}
@@ -33,7 +33,7 @@ const Logo = () => (
     data-testid="logo-link"
   >
     <LogoMark />
-    <span className="font-display uppercase leading-[0.9] tracking-tight text-lg text-white group-hover:text-acid transition-colors duration-300">
+    <span className="font-display uppercase leading-[0.9] tracking-tight text-xl text-white group-hover:text-acid transition-colors duration-300">
       Forward
       <br />
       Movement

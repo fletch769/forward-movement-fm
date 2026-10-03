@@ -32,15 +32,15 @@ const OBJECTS = [
 
 const About = () => (
   <>
-    <section className="pt-40 pb-20 md:pt-52 md:pb-28" data-testid="about-header">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section className="pt-44 pb-24 md:pt-56 md:pb-32" data-testid="about-header">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-6">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-8">
             About Us
           </p>
         </FadeUp>
         <h1
-          className="font-display uppercase leading-[0.88] tracking-tight text-[15vw] sm:text-[11vw] lg:text-[8.5rem]"
+          className="font-display uppercase leading-[0.88] tracking-tight text-[16vw] sm:text-[12vw] lg:text-[10.5rem]"
           data-testid="about-heading"
         >
           <LineReveal delay={0.2} className="text-white">
@@ -51,7 +51,7 @@ const About = () => (
           </LineReveal>
         </h1>
         <FadeUp delay={0.3}>
-          <p className="mt-10 max-w-2xl text-zinc-400 text-base md:text-lg leading-relaxed">
+          <p className="mt-12 max-w-3xl text-zinc-400 text-lg md:text-xl leading-relaxed">
             Forward Movement is a registered charity (No. 1191828) working to
             advance in life and relieve the needs of young people and people in
             need. We started in the performing arts, media and entertainment —
@@ -64,11 +64,11 @@ const About = () => (
 
     <EditorialMarquee />
 
-    <section className="py-24 md:py-32" data-testid="about-origin">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 grid gap-12 md:grid-cols-12">
+    <section className="py-28 md:py-36" data-testid="about-origin">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10 grid gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <FadeUp>
-            <h2 className="font-display uppercase text-4xl md:text-5xl leading-[0.95] tracking-tight">
+            <h2 className="font-display uppercase text-5xl md:text-6xl leading-[0.95] tracking-tight">
               Where we
               <br />
               <span className="text-acid">started</span>
@@ -77,16 +77,16 @@ const About = () => (
         </div>
         <div className="md:col-span-8">
           <FadeUp delay={0.1}>
-            <div className="border border-white/10 bg-coal p-8 md:p-12 relative">
-              <Quote className="w-10 h-10 text-acid mb-6" strokeWidth={1.5} />
-              <p className="text-lg md:text-2xl text-zinc-200 leading-relaxed font-medium">
+            <div className="border border-white/10 bg-coal p-8 md:p-14 relative">
+              <Quote className="w-12 h-12 text-acid mb-8" strokeWidth={1.5} />
+              <p className="text-xl md:text-3xl text-zinc-200 leading-relaxed font-medium">
                 To advance in life and relieve the needs of young people by
                 providing support and activities focused on the performing arts,
                 media and entertainment production — to help develop their
                 skills, capabilities and to enable them to participate in
                 society as mature and responsible individuals.
               </p>
-              <p className="mt-6 text-xs uppercase tracking-widest text-zinc-500">
+              <p className="mt-8 text-sm uppercase tracking-widest text-zinc-500">
                 Our current charitable object
               </p>
             </div>
@@ -95,16 +95,16 @@ const About = () => (
       </div>
     </section>
 
-    <section className="py-24 md:py-32 border-t border-white/10" data-testid="objects-section">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section className="py-28 md:py-36 border-t border-white/10" data-testid="objects-section">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10">
         <FadeUp>
-          <p className="text-acid text-xs font-bold uppercase tracking-[0.3em] mb-4">
+          <p className="text-acid text-sm font-bold uppercase tracking-[0.3em] mb-5">
             For Public Benefit
           </p>
-          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-6">
+          <h2 className="font-display uppercase leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-7xl mb-8">
             Our updated objects
           </h2>
-          <p className="max-w-2xl text-zinc-400 text-base md:text-lg leading-relaxed mb-16">
+          <p className="max-w-3xl text-zinc-400 text-lg md:text-xl leading-relaxed mb-20">
             To advance in life and relieve the needs of young people and people
             in need by:
           </p>
@@ -113,16 +113,16 @@ const About = () => (
           {OBJECTS.map((obj, i) => (
             <FadeUp key={obj.n} delay={i * 0.06}>
               <div
-                className="grid gap-4 md:grid-cols-12 md:items-baseline py-8 md:py-10 border-t border-white/10 group hover:bg-coal transition-colors duration-300 px-2 md:px-4"
+                className="grid gap-5 md:grid-cols-12 md:items-baseline py-10 md:py-12 border-t border-white/10 group hover:bg-coal transition-colors duration-300 px-2 md:px-6"
                 data-testid={`object-item-${obj.n}`}
               >
-                <span className="md:col-span-2 font-display text-4xl md:text-5xl text-outline group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
+                <span className="md:col-span-2 font-display text-5xl md:text-6xl text-outline group-hover:text-acid group-hover:[-webkit-text-stroke:0px] transition-all duration-300">
                   {obj.n}
                 </span>
-                <h3 className="md:col-span-4 font-display uppercase text-2xl md:text-3xl tracking-tight text-white">
+                <h3 className="md:col-span-4 font-display uppercase text-3xl md:text-4xl tracking-tight text-white">
                   {obj.title}
                 </h3>
-                <p className="md:col-span-6 text-zinc-400 text-sm md:text-base leading-relaxed">
+                <p className="md:col-span-6 text-zinc-400 text-base md:text-lg leading-relaxed">
                   {obj.text}
                 </p>
               </div>
@@ -133,30 +133,30 @@ const About = () => (
     </section>
 
     <section className="border-t border-white/10 bg-coal" data-testid="charity-facts">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20 grid gap-10 sm:grid-cols-3">
+      <div className="max-w-[92rem] mx-auto px-5 md:px-10 py-20 md:py-24 grid gap-10 sm:grid-cols-3">
         <FadeUp>
-          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-3">
+          <p className="text-sm uppercase tracking-widest text-zinc-500 mb-4">
             Registered Charity
           </p>
-          <p className="font-display text-3xl md:text-4xl text-acid">1191828</p>
+          <p className="font-display text-4xl md:text-5xl text-acid">1191828</p>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-3">
+          <p className="text-sm uppercase tracking-widest text-zinc-500 mb-4">
             Regulator
           </p>
-          <p className="font-display text-3xl md:text-4xl text-white leading-tight">
+          <p className="font-display text-4xl md:text-5xl text-white leading-tight">
             Charity Commission
           </p>
-          <p className="text-zinc-500 text-sm mt-1">for England &amp; Wales</p>
+          <p className="text-zinc-500 text-base mt-2">for England &amp; Wales</p>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-3">
+          <p className="text-sm uppercase tracking-widest text-zinc-500 mb-4">
             Get In Touch
           </p>
           <a
             href="mailto:contact@forwardmovement.org.uk"
             data-testid="about-email-link"
-            className="text-acid font-semibold hover:text-white transition-colors duration-300 break-all"
+            className="text-lg text-acid font-semibold hover:text-white transition-colors duration-300 break-all"
           >
             contact@forwardmovement.org.uk
           </a>
