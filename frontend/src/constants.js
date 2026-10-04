@@ -1,4 +1,4 @@
-export const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+export const API = "/api";
 
 export const IMAGES = {
     hero: "https://images.unsplash.com/photo-1785151262591-5e6cb87c6643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxncml0dHklMjB1cmJhbiUyMHlvdXRoJTIwY29tbXVuaXR5fGVufDB8fHx8MTc5MDk2OTY1Nnww&ixlib=rb-4.1.0&q=85",
