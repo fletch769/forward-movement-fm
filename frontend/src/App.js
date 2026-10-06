@@ -43,6 +43,22 @@ const SEO = () => {
         title: "Contact Forward Movement | Birmingham Charity",
         description: "Contact Forward Movement about programmes, partnerships, volunteering, community support and opportunities to work together.",
       },
+      "/youth-support-birmingham": {
+        title: "Youth Support Birmingham | Forward Movement",
+        description: "Forward Movement supports young people in Birmingham through education, training, mentoring, creative opportunities, sport, housing-related support and community programmes.",
+      },
+      "/education-training-birmingham": {
+        title: "Education & Training Birmingham | Forward Movement",
+        description: "Education, training, mentoring and development opportunities supporting skills, confidence, employability and independence in Birmingham.",
+      },
+      "/performing-arts-media-birmingham": {
+        title: "Performing Arts & Media Birmingham | Forward Movement",
+        description: "Creative opportunities connected with performing arts, media, entertainment, sport and culture for young people and communities.",
+      },
+      "/housing-community-support-birmingham": {
+        title: "Housing & Community Support Birmingham | Forward Movement",
+        description: "Forward Movement promotes suitable accommodation, housing-related support, stability, independence and community participation in Birmingham.",
+      },
     };
     const page = pages[pathname] || pages["/"];
     document.title = page.title;
