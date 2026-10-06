@@ -13,6 +13,18 @@
   },
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/robots.txt",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
       "source": "/api",
       "destination": {
         "service": "backend"
