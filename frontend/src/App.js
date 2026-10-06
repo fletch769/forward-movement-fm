@@ -14,6 +14,7 @@ import YouthSupport from "@/pages/YouthSupport";
 import EducationTraining from "@/pages/EducationTraining";
 import ArtsMedia from "@/pages/ArtsMedia";
 import HousingCommunity from "@/pages/HousingCommunity";
+import NotFound from "@/pages/NotFound";
 
 
 const SITE_URL = "https://www.forwardmovement.org.uk";
@@ -25,39 +26,39 @@ const SEO = () => {
     const pages = {
       "/": {
         title: "Forward Movement | Birmingham Youth & Community Charity",
-        description: "Forward Movement is a Birmingham charity supporting young people and communities through education, arts, sport, housing support and community programmes.",
+        description: "Birmingham charity supporting young people and communities through education, training, arts, sport, housing and community programmes.",
       },
       "/about": {
         title: "About Forward Movement | Birmingham Charity",
-        description: "Learn about Forward Movement, a registered Birmingham charity supporting young people and people in need through education, arts, sport, housing support and community work.",
+        description: "Learn about Forward Movement, a Birmingham charity supporting young people and people in need through education, training, arts, sport and housing support.",
       },
       "/programmes": {
         title: "Programmes | Forward Movement Birmingham",
-        description: "Explore Forward Movement programmes supporting young people and communities through education, performing arts, media, sport, wellbeing, housing support and skills development.",
+        description: "Explore Forward Movement programmes for education, training, performing arts, media, sport, housing support, employability and community development.",
       },
       "/get-involved": {
         title: "Get Involved | Forward Movement",
-        description: "Support Forward Movement through volunteering, partnerships, programme involvement and community action across Birmingham and beyond.",
+        description: "Volunteer, partner or join Forward Movement programmes supporting young people and communities across Birmingham.",
       },
       "/contact": {
         title: "Contact Forward Movement | Birmingham Charity",
-        description: "Contact Forward Movement about programmes, partnerships, volunteering, community support and opportunities to work together.",
+        description: "Contact Forward Movement about programmes, partnerships, volunteering, housing support and community opportunities in Birmingham.",
       },
       "/youth-support-birmingham": {
         title: "Youth Support Birmingham | Forward Movement",
-        description: "Forward Movement supports young people in Birmingham through education, training, mentoring, creative opportunities, sport, housing-related support and community programmes.",
+        description: "Youth support in Birmingham through education, training, mentoring, arts, sport, housing-related support and community programmes.",
       },
       "/education-training-birmingham": {
         title: "Education & Training Birmingham | Forward Movement",
-        description: "Education, training, mentoring and development opportunities supporting skills, confidence, employability and independence in Birmingham.",
+        description: "Education and training in Birmingham supporting skills, confidence, employability and independence for young people and people in need.",
       },
       "/performing-arts-media-birmingham": {
         title: "Performing Arts & Media Birmingham | Forward Movement",
-        description: "Creative opportunities connected with performing arts, media, entertainment, sport and culture for young people and communities.",
+        description: "Performing arts and media opportunities in Birmingham, alongside sport and culture, helping people build skills and practical experience.",
       },
       "/housing-community-support-birmingham": {
         title: "Housing & Community Support Birmingham | Forward Movement",
-        description: "Forward Movement promotes suitable accommodation, housing-related support, stability, independence and community participation in Birmingham.",
+        description: "Housing and community support in Birmingham focused on suitable accommodation, stability, independence and participation.",
       },
     };
     const page = pages[pathname] || pages["/"];
@@ -76,7 +77,7 @@ const SEO = () => {
     setMeta("robots", "index,follow,max-image-preview:large");
     setProperty("og:title", page.title);
     setProperty("og:description", page.description);
-    setProperty("og:type", pathname === "/" ? "website" : "article");
+    setProperty("og:type", "website");
     setProperty("og:url", SITE_URL + (pathname === "/" ? "/" : pathname));
     setProperty("og:site_name", "Forward Movement");
     setProperty("og:image", SITE_URL + "/favicon.svg");
@@ -86,6 +87,23 @@ const SEO = () => {
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = SITE_URL + (pathname === "/" ? "/" : pathname);
+
+    const pageType = pathname === "/about" ? "AboutPage" : pathname === "/contact" ? "ContactPage" : "WebPage";
+    const existingLd = document.getElementById("dynamic-seo-ld");
+    if (existingLd) existingLd.remove();
+    const ld = document.createElement("script");
+    ld.id = "dynamic-seo-ld";
+    ld.type = "application/ld+json";
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": pageType,
+      name: page.title,
+      url: SITE_URL + (pathname === "/" ? "/" : pathname),
+      description: page.description,
+      isPartOf: { "@type": "WebSite", name: "Forward Movement", url: SITE_URL + "/" },
+      publisher: { "@type": "NGO", name: "Forward Movement", url: SITE_URL + "/", identifier: "1191828" }
+    });
+    document.head.appendChild(ld);
   }, [pathname]);
   return null;
 };
@@ -135,7 +153,7 @@ function App() {
             <Route path="/education-training-birmingham" element={<EducationTraining />} />
             <Route path="/performing-arts-media-birmingham" element={<ArtsMedia />} />
             <Route path="/housing-community-support-birmingham" element={<HousingCommunity />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
