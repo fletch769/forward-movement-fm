@@ -10,6 +10,10 @@ import About from "@/pages/About";
 import Programmes from "@/pages/Programmes";
 import GetInvolved from "@/pages/GetInvolved";
 import Contact from "@/pages/Contact";
+import YouthSupport from "@/pages/YouthSupport";
+import EducationTraining from "@/pages/EducationTraining";
+import ArtsMedia from "@/pages/ArtsMedia";
+import HousingCommunity from "@/pages/HousingCommunity";
 
 
 const SITE_URL = "https://www.forwardmovement.org.uk";
@@ -111,6 +115,10 @@ function App() {
             <Route path="/programmes" element={<Programmes />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/youth-support-birmingham" element={<YouthSupport />} />
+            <Route path="/education-training-birmingham" element={<EducationTraining />} />
+            <Route path="/performing-arts-media-birmingham" element={<ArtsMedia />} />
+            <Route path="/housing-community-support-birmingham" element={<HousingCommunity />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
