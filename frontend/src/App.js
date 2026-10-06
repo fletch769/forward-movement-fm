@@ -21,7 +21,7 @@ const SEO = () => {
     const pages = {
       "/": {
         title: "Forward Movement | Birmingham Youth & Community Charity",
-        description: "Forward Movement is a Birmingham charity helping young people and people in need through education, performing arts, media, sport, housing support and community programmes. Charity No. 1191828.",
+        description: "Forward Movement is a Birmingham charity supporting young people and communities through education, arts, sport, housing support and community programmes.",
       },
       "/about": {
         title: "About Forward Movement | Birmingham Charity",
