@@ -15,6 +15,13 @@ const Footer = () => (
         </p>
       </div>
       <div className="md:col-span-3">
+        <p className="text-sm uppercase tracking-widest text-zinc-500 mb-6">Birmingham Resources</p>
+        <ul className="space-y-4 mb-10">
+          <li><Link to="/youth-support-birmingham" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-acid transition-colors">Youth Support Birmingham</Link></li>
+          <li><Link to="/education-training-birmingham" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-acid transition-colors">Education &amp; Training</Link></li>
+          <li><Link to="/performing-arts-media-birmingham" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-acid transition-colors">Arts &amp; Media</Link></li>
+          <li><Link to="/housing-community-support-birmingham" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-acid transition-colors">Housing &amp; Community Support</Link></li>
+        </ul>
         <p className="text-sm uppercase tracking-widest text-zinc-500 mb-6">
           Explore
         </p>
