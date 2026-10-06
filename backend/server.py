@@ -1,7 +1,6 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import time
 import uuid
@@ -15,10 +14,6 @@ from resend.exceptions import ResendError
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
-
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
@@ -175,24 +170,20 @@ async def submit_contact(payload: ContactMessage, request: Request):
     doc = {
         "id": str(uuid.uuid4()),
         "name": payload.name.strip(),
-        "email": payload.email,
+        "email": str(payload.email),
         "topic": topic,
         "message": payload.message.strip(),
         "created_at": datetime.now(timezone.utc).isoformat(),
     }
-    await db.contact_messages.insert_one(doc)
     email_id = await send_contact_email(doc)
     auto_reply_id = await send_auto_reply(doc)
-    await db.contact_messages.update_one(
-        {"id": doc["id"]},
-        {"$set": {
-            "resend_id": email_id,
-            "email_status": "accepted",
-            "auto_reply_id": auto_reply_id,
-            "auto_reply_status": "accepted" if auto_reply_id else "failed",
-        }},
-    )
-    return {"status": "success", "id": doc["id"], "email_id": email_id, "auto_reply_id": auto_reply_id}
+    return {
+        "status": "success",
+        "id": doc["id"],
+        "email_id": email_id,
+        "auto_reply_id": auto_reply_id,
+        "auto_reply_status": "accepted" if auto_reply_id else "failed",
+    }
 
 
 app.include_router(api_router)
@@ -204,8 +195,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
