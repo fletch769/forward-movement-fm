@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.forwardmovement.org.uk/sitemap.xml
-Sitemap: https://www.forwardmovement.org.uk/sitemap.txt
