@@ -9,9 +9,9 @@ const Footer = () => (
       <div className="md:col-span-5 space-y-6">
         <Logo />
         <p className="text-zinc-400 text-base md:text-lg max-w-md leading-relaxed">
-          Advancing in life and relieving the needs of young people and people
-          in need — through arts, media, sport, education, housing support and
-          community.
+          Forward Movement is a Birmingham charity supporting young people and
+          people in need through education, training, performing arts, media,
+          sport, housing support, employability and community programmes.
         </p>
       </div>
       <div className="md:col-span-3">
@@ -45,10 +45,21 @@ const Footer = () => (
           <ArrowUpRight className="w-5 h-5 shrink-0" />
         </a>
         <p className="mt-8 text-zinc-500 text-base leading-relaxed">
+          Birmingham, England
+          <br />
           Registered Charity No. 1191828
           <br />
           England &amp; Wales
         </p>
+        <a
+          href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5164644/full-print"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-acid transition-colors duration-300"
+        >
+          View our Charity Commission record
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
     <div className="overflow-hidden border-t border-white/10" aria-hidden="true">
