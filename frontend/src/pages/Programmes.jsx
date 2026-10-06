@@ -64,7 +64,7 @@ const BentoCard = ({ card, index }) => (
         <>
           <img
             src={card.img}
-            alt=""
+            alt={`${card.title} programme image`}
             className="absolute inset-0 w-full h-full object-cover img-grit opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
           />
           <div
